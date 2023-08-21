@@ -36,13 +36,13 @@ resource "aws_ebs_volume" "this" {
 resource "aws_volume_attachment" "this" {
   device_name = "/dev/sdh"
   volume_id   = aws_ebs_volume.this.id
-  instance_id = module.aws-lido-dr.id
+  instance_id = module.aws-ethereum.id
 }
 
-module "aws-lido-dr" {
+module "aws-ethereum" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "ethereum-lido-dr-${var.suffix}"
+  name = "ethereum-${var.suffix}"
 
   ami               = data.aws_ami.amazon_linux.id
   availability_zone = var.availability_zone

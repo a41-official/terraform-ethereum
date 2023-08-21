@@ -38,8 +38,8 @@ module "aws-korea-ethereum-snapshot" {
   snapshot_tag_name      = local.ethereum_mainnet_snapshot_tag_name
 }
 
-module "aws-korea-lido-dr" {
-  source = "./modules/aws-lido-dr"
+module "aws-korea-ethereum" {
+  source = "./modules/aws-ethereum"
   providers = {
     aws = aws.korea
   }
